@@ -36,6 +36,7 @@ Tudo está em `index.html`, em seções comentadas (`HERO`, `SERVIÇOS`,
 `DIFERENCIAIS`, `EQUIPE`, `CONTATO / CTA`, rodapé). Cores, espaçamentos e raios
 vêm de variáveis CSS declaradas em `:root`, no topo do `<style>`.
 
-Telefones aparecem em dois lugares (cartões da equipe e bloco de contato) e usam
-links `tel:` no formato internacional — ao alterar um número, atualize também o
-`href`.
+Telefones aparecem em dois lugares (cartões da equipe e bloco de contato) e
+abrem o WhatsApp via `https://wa.me/55DDDNUMERO?text=...`, com uma mensagem
+pré-preenchida (URL-encoded). Ao trocar um número, atualize o texto **e** o
+`href` — o `wa.me` usa o número sem `+`, espaços ou traços.
