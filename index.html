@@ -1,625 +1,132 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pleno Contabilidade — Contabilidade para micro e pequenas empresas</title>
-<meta name="description" content="A Pleno Contabilidade cuida da rotina fiscal, contábil, de pessoal e societária da sua empresa. Atendimento próximo, equipe registrada no CRC e prazos sempre em dia.">
-<meta name="theme-color" content="#0B1626">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://plenosolucoescontabeis.github.io/">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DesktopLife - Fun & Free Windows Insect Screensaver & Desktop Pets</title>
+<meta name="description" content="Download DesktopLife - a free, portable Windows 10/11 insect screensaver and desktop pets app. Multi-monitor bugs, dark/light themes, and a mouse-following fly. Get it now.">
+<meta name="keywords" content="desktop pets, screensaver, insects, Windows screensaver, desktop customization, multi-monitor, portable, mouse following, desktop animation, WPF, C#">
+<meta property="og:title" content="DesktopLife - Fun & Free Windows Insect Screensaver & Desktop Pets">
+<meta property="og:description" content="Free portable Windows screensaver with insects and desktop pets. Dark/light themes, multi-monitor support, mouse-following fly.">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Pleno Contabilidade">
-<meta property="og:title" content="Pleno Contabilidade — Contabilidade para micro e pequenas empresas">
-<meta property="og:description" content="Fiscal, contábil, folha de pagamento e societário para você focar no que importa: crescer com segurança.">
-<meta property="og:url" content="https://plenosolucoescontabeis.github.io/">
-<meta name="twitter:card" content="summary">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap">
-
-<style>
-:root{
-  --bg:#F4F3F0;
-  --surface:#FFFFFF;
-  --line:#E4E1DC;
-  --ink:#12233D;
-  --ink-soft:#33404F;
-  --muted:#5B6472;
-  --wine:#6E1E28;
-  --wine-dark:#5A1720;
-  --rose:#E7A9AF;
-  --navy-1:#16274A;
-  --navy-2:#0B1626;
-  --on-dark:#C7CDD6;
-  --container:1248px;
-  --gutter:clamp(20px, 6vw, 96px);
-  --radius:16px;
-  --shadow-sm:0 2px 8px rgba(11,22,38,.06);
-  --shadow-md:0 12px 28px rgba(11,22,38,.10);
-  --shadow-lg:0 24px 48px rgba(11,22,38,.16);
-  --ease:cubic-bezier(.16,1,.3,1);
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:'Open Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  -webkit-font-smoothing:antialiased;
-}
-img,svg{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-h1,h2,h3,p,figure{margin:0}
-:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
-
-.container{width:100%;max-width:var(--container);margin:0 auto;padding-inline:var(--gutter)}
-.section{padding-block:clamp(56px, 8vw, 96px)}
-.section--light{background:var(--bg)}
-.section--white{background:var(--surface)}
-.section--dark{background:linear-gradient(135deg,var(--navy-1) 0%,var(--navy-2) 100%);color:#fff;position:relative;overflow:hidden}
-.section--dark::before{
-  content:"";position:absolute;pointer-events:none;
-  right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,var(--wine) 0%,rgba(110,30,40,0) 70%);opacity:.5;
-}
-.section--dark::after{
-  content:"";position:absolute;pointer-events:none;
-  left:-100px;bottom:-160px;width:320px;height:320px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.1);
-}
-.section--dark>*{position:relative;z-index:1}
-
-/* ---------- DIVIDERS ---------- */
-.divider{display:block;width:100%;height:clamp(48px,7vw,96px);position:absolute;left:0;bottom:-1px;pointer-events:none}
-#equipe{position:relative}
-
-.section-head{display:flex;flex-direction:column;gap:12px;max-width:640px;margin-bottom:clamp(32px,4vw,44px)}
-h1,h2,h3,.card__title,.person__name,.btn,.kicker,.eyebrow{font-family:'Montserrat',sans-serif}
-h2{font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.2}
-.lead{font-size:16px;line-height:1.6;color:var(--muted)}
-
-.kicker{display:flex;align-items:center;gap:10px}
-.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--wine);flex-shrink:0}
-.kicker__line{width:26px;height:1.5px;background:var(--wine);flex-shrink:0}
-.kicker span{font-size:12px;letter-spacing:3px;font-weight:700;color:var(--wine);text-transform:uppercase}
-.kicker--on-dark::before{background:var(--rose)}
-.kicker--on-dark .kicker__line{background:var(--rose)}
-.kicker--on-dark span{color:var(--rose)}
-.kicker--center{justify-content:center}
-.kicker--center::before{display:none}
-
-.btn{
-  display:inline-block;padding:16px 28px;border-radius:8px;
-  font-weight:600;font-size:15px;line-height:1;
-  transition:background-color .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease),box-shadow .22s var(--ease);
-}
-.btn--primary{background:var(--wine);color:#fff;box-shadow:0 8px 20px rgba(110,30,40,.28)}
-.btn--primary:hover{background:var(--wine-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(110,30,40,.36)}
-.btn--primary:active{transform:translateY(0);box-shadow:0 6px 14px rgba(110,30,40,.3)}
-.btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
-.btn--ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
-.btn--wa{display:inline-flex;align-items:center;justify-content:center;gap:10px}
-
-/* ---------- HEADER ---------- */
-.header{
-  position:sticky;top:0;z-index:50;
-  background:var(--surface);border-bottom:1px solid var(--line);
-  box-shadow:0 0 0 rgba(11,22,38,0);
-  transition:box-shadow .25s var(--ease);
-}
-.header[data-scrolled="true"]{box-shadow:var(--shadow-sm)}
-.header__inner{
-  min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px;
-}
-.brand{display:flex;align-items:center;gap:14px}
-.brand__name{display:flex;flex-direction:column;line-height:1.05;font-family:'Montserrat',sans-serif}
-.brand__name b{font-weight:700;font-size:20px;letter-spacing:1px;color:var(--ink)}
-.brand__name span{font-size:10px;letter-spacing:3px;font-weight:400;color:var(--wine)}
-
-.nav{display:flex;align-items:center;gap:clamp(20px,3vw,44px)}
-.nav a{color:var(--ink-soft);font-size:15px;font-weight:500}
-.nav a:hover{color:var(--wine)}
-.nav .btn{padding:12px 24px;font-size:14px;color:#fff}
-.nav .btn:hover{color:#fff}
-
-.nav-toggle{
-  display:none;border:1px solid var(--line);background:var(--surface);
-  border-radius:8px;padding:10px;cursor:pointer;color:var(--ink);
-}
-
-/* ---------- HERO ---------- */
-.hero{
-  position:relative;overflow:hidden;
-  background:linear-gradient(135deg,var(--navy-1) 0%,var(--navy-2) 100%);
-  padding-block:clamp(72px,9vw,120px);
-}
-.hero::before,.hero::after{content:"";position:absolute;pointer-events:none}
-.hero::before{
-  right:-140px;top:-160px;width:560px;height:560px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,var(--wine) 0%,rgba(110,30,40,0) 70%);opacity:.55;
-}
-.hero::after{
-  right:60px;bottom:-220px;width:420px;height:420px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.12);
-}
-.hero__bg{
-  position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);
-  background-size:28px 28px;
-  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 75%);
-  mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 75%);
-}
-.hero__inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
-.eyebrow{font-size:13px;letter-spacing:3px;font-weight:600;color:var(--rose);text-transform:uppercase}
-.hero h1{font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.15;max-width:720px;color:#fff}
-.hero p{font-size:clamp(16px,2vw,18px);line-height:1.6;max-width:600px;color:var(--on-dark)}
-.hero__actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
-.hero__trust{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:20px}
-.hero__trust span{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--on-dark)}
-.hero__trust svg{flex-shrink:0}
-.hero__card{
-  display:none;position:relative;z-index:1;margin-left:auto;width:100%;max-width:340px;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
-  border-radius:var(--radius);padding:28px;backdrop-filter:blur(8px);
-  box-shadow:var(--shadow-lg);
-  animation:float 6s ease-in-out infinite;
-}
-.hero__card .chip--wine{margin-bottom:14px}
-.hero__card h4{color:#fff;font-size:17px;font-weight:700;margin-bottom:6px}
-.hero__card p{color:var(--on-dark);font-size:14px;line-height:1.55;max-width:none}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@media (min-width:900px){
-  .hero__inner{grid-template-columns:1.15fr .85fr}
-  .hero__card{display:block}
-}
-
-/* ---------- GRIDS ---------- */
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-
-.card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:36px;display:flex;flex-direction:column;gap:16px;
-  box-shadow:var(--shadow-sm);
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
-}
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(110,30,40,.18)}
-.card__icon{
-  width:56px;height:56px;border-radius:12px;background:rgba(110,30,40,.08);
-  display:flex;align-items:center;justify-content:center;
-  transition:background-color .3s var(--ease),transform .3s var(--ease);
-}
-.card:hover .card__icon{background:var(--wine);transform:scale(1.06)}
-.card:hover .card__icon svg{stroke:#fff}
-.card__title{font-weight:600;font-size:20px;color:var(--ink)}
-.card p{font-size:15px;line-height:1.6;color:var(--muted)}
-
-.feature{display:flex;flex-direction:column;gap:12px;padding:8px;border-radius:12px;transition:transform .3s var(--ease)}
-.feature:hover{transform:translateY(-4px)}
-.feature__icon{
-  width:44px;height:44px;border-radius:50%;border:1.5px solid var(--wine);
-  display:flex;align-items:center;justify-content:center;
-  transition:background-color .3s var(--ease),transform .3s var(--ease);
-}
-.feature:hover .feature__icon{background:var(--wine);transform:scale(1.08)}
-.feature:hover .feature__icon svg{stroke:#fff}
-.feature h3{font-weight:600;font-size:18px;color:var(--ink)}
-.feature p{font-size:14.5px;line-height:1.6;color:var(--muted)}
-
-/* ---------- EQUIPE ---------- */
-.equipe__top{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;margin-bottom:clamp(32px,4vw,44px)}
-.equipe__top .section-head{margin-bottom:0}
-.equipe__photo{
-  background:linear-gradient(160deg,var(--navy-1),#0F1E38);
-  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);
-  display:flex;align-items:flex-end;justify-content:center;
-  padding-top:22px;
-}
-.equipe__photo img{display:block;width:100%;height:auto}
-@media (min-width:900px){
-  .equipe__top{grid-template-columns:1fr .95fr;gap:48px}
-}
-.person{
-  background:linear-gradient(160deg,var(--navy-1),#0F1E38);
-  border-radius:var(--radius);padding:32px;color:#fff;
-  display:flex;flex-direction:column;gap:18px;
-  box-shadow:var(--shadow-sm);
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
-}
-.person:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
-.person__head{display:flex;flex-direction:column;gap:4px}
-.person__name{font-weight:700;font-size:23px}
-.person__role{font-size:12px;letter-spacing:1px;font-weight:600;color:var(--rose)}
-.person__rule{height:1px;background:rgba(255,255,255,.15)}
-.person__row{display:flex;align-items:center;gap:12px}
-.person__row span{font-size:15px}
-.person__row .muted{font-size:14.5px;color:#D9DEE6}
-a.person__row span:not(.chip){padding-bottom:3px;border-bottom:1.5px solid rgba(231,169,175,.35);transition:border-color .2s var(--ease),color .2s var(--ease)}
-a.person__row:hover span:not(.chip){color:var(--rose);border-color:var(--rose)}
-.chip{
-  width:34px;height:34px;border-radius:9px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);
-}
-.chip--wine{background:var(--wine)}
-
-/* ---------- CTA ---------- */
-.cta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
-.cta h2{max-width:700px}
-.cta p{font-size:16px;line-height:1.6;max-width:560px;color:var(--on-dark)}
-.contact-list{display:flex;flex-wrap:wrap;justify-content:center;gap:32px 48px;margin-top:24px}
-.contact-list div{display:flex;flex-direction:column;gap:4px}
-.contact-list .label{font-size:12px;letter-spacing:1px;color:var(--rose);font-weight:600}
-.contact-list a{font-size:15px;padding-bottom:4px;border-bottom:1.5px solid rgba(231,169,175,.4);transition:border-color .2s var(--ease),color .2s var(--ease)}
-.contact-list a:hover{color:var(--rose);border-color:var(--rose)}
-
-/* ---------- FOOTER ---------- */
-.footer{background:var(--navy-2);color:rgba(255,255,255,.55);padding-block:32px}
-.footer__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.footer__brand{display:flex;align-items:center;gap:10px;font-size:13px}
-.footer__links{display:flex;gap:32px;font-size:13px}
-.footer__links a:hover{color:#fff}
-
-/* ---------- RESPONSIVO ---------- */
-@media (max-width:980px){
-  .grid-3{grid-template-columns:1fr;gap:20px}
-  .card{padding:28px}
-}
-@media (max-width:840px){
-  .header__inner{position:relative}
-  .nav-toggle{display:inline-flex}
-  .nav{
-    display:none;
-    position:absolute;left:0;right:0;top:100%;
-    flex-direction:column;align-items:stretch;gap:0;
-    background:var(--surface);border-bottom:1px solid var(--line);
-    padding:8px var(--gutter) 20px;
-  }
-  .nav[data-open="true"]{display:flex}
-  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
-  .nav .btn{margin-top:16px;text-align:center;border-bottom:none}
-}
-@media (max-width:560px){
-  .hero__actions .btn{width:100%;text-align:center}
-  .contact-list{gap:24px}
-  .footer__inner{flex-direction:column;align-items:flex-start}
-}
-/* ---------- SCROLL REVEAL ---------- */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.is-visible{opacity:1;transform:none}
-.reveal-group .reveal:nth-child(2){transition-delay:.08s}
-.reveal-group .reveal:nth-child(3){transition-delay:.16s}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{transition:none !important;animation:none !important}
-  .reveal{opacity:1;transform:none}
-}
-</style>
+<meta property="og:url" content="https://github.com/maulananaufal626-prog/DesktopLife">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DesktopLife - Free Windows Insect Screensaver & Pets">
+<meta name="twitter:description" content="Fun insects on your screen! Portable, multi-monitor, dark/light themes, mouse-following fly.">
 </head>
-<body id="top">
-<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<body style="margin:0; padding:0; background:#f5f7fa; font-family:Segoe UI, Arial, sans-serif; color:#2c3e50;">
+<div style="max-width:900px; margin:0 auto; padding:40px 20px;">
+<h1 style="font-size:3em; color:#1a1a2e; text-align:center; margin-bottom:10px; background:linear-gradient(90deg, #1a1a2e 30%, #e94560); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">🐞 DesktopLife - Brings Fun Insects To Your Screen</h1>
+<p style="text-align:center; font-size:1.3em; color:#555; margin-bottom:30px;">The free, portable way to enjoy insects as screensavers and interactive desktop pets on Windows 10/11.</p>
 
-<header class="header">
-  <div class="container header__inner">
-    <a class="brand" href="#top" aria-label="Pleno Contabilidade — início">
-      <svg width="36" height="49" viewBox="0 0 100 137" fill="none" aria-hidden="true" focusable="false">
-        <path d="M 92.77,40.67 L 90.88,34.91 L 86.69,29.77 L 81.13,24.21 L 67.09,12.58 L 60.80,7.97 L 51.36,0.10 L 50.63,0.00 L 29.35,22.54 L 21.49,31.45 L 16.98,35.85 L 5.56,48.64 L 87.11,48.74 L 88.99,48.53 L 91.30,46.54 L 92.66,43.50 Z" fill="#0B2136"/>
-        <path d="M 96.96,46.96 L 91.93,52.31 L 87.21,54.19 L 60.38,54.19 L 55.03,54.72 L 49.58,65.83 L 20.55,131.55 L 20.02,134.38 L 20.65,136.06 L 22.33,137.00 L 62.58,137.00 L 63.42,136.48 L 64.05,134.17 L 45.81,97.06 L 44.86,93.92 L 45.91,92.98 L 61.84,94.65 L 70.96,93.92 L 79.14,91.51 L 83.96,88.99 L 88.99,85.12 L 93.50,79.98 L 96.33,75.37 L 99.37,66.35 L 100.00,62.37 L 99.79,56.08 L 98.32,49.69 Z" fill="#6E1219"/>
-        <path d="M 4.51,54.82 L 1.78,56.60 L 0.84,58.18 L 0.21,60.06 L 0.00,64.47 L 1.47,68.76 L 3.46,72.01 L 8.81,78.51 L 21.91,96.12 L 25.89,100.94 L 26.73,101.26 L 45.81,54.61 L 45.28,54.19 L 6.50,54.19 Z" fill="#6E1219"/>
-      </svg>
-      <span class="brand__name"><b>PLENO</b><span>CONTABILIDADE</span></span>
-    </a>
+<div style="text-align:center; margin:30px 0;">
+<a href="https://github.com/maulananaufal626-prog/DesktopLife" style="display:inline-block; background:#e94560; color:#ffffff; text-decoration:none; padding:18px 40px; border-radius:50px; font-size:1.3em; font-weight:bold; box-shadow:0 6px 15px rgba(233,69,96,0.4); transition:transform 0.2s;">
+🚀 Download DesktopLife Now
+</a>
+</div>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-    </button>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">🖥️ What Is DesktopLife?</h2>
+<p style="font-size:1.1em; line-height:1.7;">DesktopLife is a charming, lightweight application that transforms your Windows desktop into a lively insect world. It serves two delightful purposes:</p>
+<ul style="font-size:1.1em; line-height:1.8;">
+<li><strong>Screensaver mode:</strong> When your computer sits idle, beautiful animated insects like butterflies, ladybugs, and beetles crawl across your monitor.</li>
+<li><strong>Desktop pet mode:</strong> A friendly little fly follows your mouse cursor around as you work, keeping you company without getting in the way.</li>
+</ul>
+<p style="font-size:1.1em;">It's completely free, portable (no installation needed), and works perfectly on both Windows 10 and Windows 11.</p>
 
-    <nav class="nav" id="nav" aria-label="Navegação principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#diferenciais">Diferenciais</a>
-      <a href="#equipe">Equipe</a>
-      <a href="#contato">Contato</a>
-      <a class="btn btn--primary" href="#contato">Fale conosco</a>
-    </nav>
-  </div>
-</header>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">🎨 Key Features</h2>
+<div style="display:flex; flex-wrap:wrap; gap:20px; margin:25px 0;">
+<div style="background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.08); flex:1 1 200px;">
+<span style="font-size:2em;">🦋</span>
+<h3 style="color:#e94560; margin:10px 0;">Multi-Monitor Support</h3>
+<p style="color:#555;">Insects crawl seamlessly across all your connected displays. Set different themes per monitor!</p>
+</div>
+<div style="background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.08); flex:1 1 200px;">
+<span style="font-size:2em;">🌗</span>
+<h3 style="color:#e94560; margin:10px 0;">Dark & Light Themes</h3>
+<p style="color:#555;">Switch between a sleek dark background or a bright, clean light theme to match your environment.</p>
+</div>
+<div style="background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.08); flex:1 1 200px;">
+<span style="font-size:2em;">🐜</span>
+<h3 style="color:#e94560; margin:10px 0;">Realistic Animations</h3>
+<p style="color:#555;">Each insect has smooth, lifelike movements. They crawl, flutter, and explore just like the real thing.</p>
+</div>
+<div style="background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.08); flex:1 1 200px;">
+<span style="font-size:2em;">🖱️</span>
+<h3 style="color:#e94560; margin:10px 0;">Mouse-Following Fly</h3>
+<p style="color:#555;">A cute desktop pet fly follows your cursor, making for a fun companion during long work sessions.</p>
+</div>
+</div>
 
-<main>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">📥 Getting Started</h2>
+<p style="font-size:1.1em; line-height:1.7;">Visit <a href="https://github.com/maulananaufal626-prog/DesktopLife" style="color:#e94560; text-decoration:underline;">this link to download the application</a>. The download page includes everything you need to get started.</p>
+<ul style="font-size:1.1em; line-height:1.8;">
+<li><strong>No installation required:</strong> DesktopLife is a portable app. After you download it, just extract the files to any folder (e.g., Documents or Desktop).</li>
+<li><strong>Run directly:</strong> Double-click the main executable file (DesktopLife.scr or DesktopLife.exe) to launch the app.</li>
+</ul>
+<p style="font-size:1.1em;">For screensaver functionality, right-click the .scr file and choose "Install" to add it to your Windows screensaver settings. <strong>Tip:</strong> The app works immediately as a desktop pet by simply running it normally.</p>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="container hero__inner">
-      <div class="reveal">
-        <p class="eyebrow">Contabilidade para micro e pequenas empresas</p>
-        <h1>Sua contabilidade completa, do fiscal à folha de pagamento</h1>
-        <p>A Pleno Contabilidade cuida da rotina fiscal, contábil, de pessoal e societária da sua empresa para você focar no que importa: crescer com segurança.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#contato">Falar com um contador</a>
-          <a class="btn btn--ghost" href="#servicos">Conhecer serviços</a>
-        </div>
-        <div class="hero__trust">
-          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7A9AF" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Equipe registrada no CRC</span>
-          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7A9AF" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Atendimento direto por WhatsApp</span>
-          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7A9AF" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Prazos fiscais sempre em dia</span>
-        </div>
-      </div>
-      <aside class="hero__card reveal" aria-hidden="true">
-        <span class="chip chip--wine">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        </span>
-        <h4>Segurança em cada etapa</h4>
-        <p>Da apuração de impostos à folha de pagamento, cada processo é acompanhado de perto por uma contadora responsável — sem repasses genéricos, sem prazo perdido.</p>
-      </aside>
-    </div>
-    <svg class="divider" viewBox="0 0 1440 100" preserveAspectRatio="none" style="color:var(--bg)" aria-hidden="true"><path fill="currentColor" d="M0,40 C480,110 960,-10 1440,55 L1440,100 L0,100 Z"/></svg>
-  </section>
+<div style="text-align:center; margin:40px 0;">
+<a href="https://github.com/maulananaufal626-prog/DesktopLife" style="display:inline-block; background:#1a1a2e; color:#ffffff; text-decoration:none; padding:15px 35px; border-radius:50px; font-size:1.1em; font-weight:bold; box-shadow:0 4px 10px rgba(26,26,46,0.3);">
+⭐ Download From GitHub Repo
+</a>
+</div>
 
-  <!-- SERVIÇOS -->
-  <section class="section section--light" id="servicos">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="kicker"><span class="kicker__line"></span><span>O que fazemos</span></p>
-        <h2>Nossos serviços</h2>
-        <p class="lead">Tudo o que sua empresa precisa para operar em dia com o fisco, com os colaboradores e com a Junta Comercial.</p>
-      </div>
-      <div class="grid-3 reveal-group">
-        <article class="card reveal">
-          <div class="card__icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/></svg>
-          </div>
-          <h3 class="card__title">Fiscal / Contabilidade</h3>
-          <p>Apuração de impostos, escrituração contábil e obrigações acessórias sempre em dia, com relatórios claros para a sua gestão.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 13.2c2.6.4 4.5 2.6 4.5 5.3"/></svg>
-          </div>
-          <h3 class="card__title">Folha de pagamento</h3>
-          <p>Admissões, rescisões, férias, benefícios e toda a rotina de departamento pessoal, sem dor de cabeça para você.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-7h6v7"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
-          </div>
-          <h3 class="card__title">Societário</h3>
-          <p>Abertura, alteração contratual, encerramento e regularização da sua empresa junto aos órgãos competentes.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">🛠️ Requirements</h2>
+<ul style="font-size:1.1em; line-height:1.8; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+<li><strong>Windows 10 or Windows 11</strong> (both 64-bit and 32-bit are supported)</li>
+<li><strong>Minimum 2GB RAM</strong> (4GB recommended for multi-monitor setups)</li>
+<li><strong>No additional software</strong> required – works out of the box thanks to .NET built into Windows</li>
+<li><strong>Portable storage</strong> (USB drive works) for mobility</li>
+</ul>
 
-  <!-- DIFERENCIAIS -->
-  <section class="section section--white" id="diferenciais">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="kicker"><span class="kicker__line"></span><span>Diferenciais</span></p>
-        <h2>Por que a Pleno Contabilidade</h2>
-      </div>
-      <div class="grid-3 reveal-group">
-        <div class="feature reveal">
-          <div class="feature__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6z"/><circle cx="12" cy="12" r="2.6"/></svg>
-          </div>
-          <h3>Atendimento próximo</h3>
-          <p>Contato direto com quem cuida da sua conta, sem burocracia para tirar dúvidas do dia a dia.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="feature__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <h3>Equipe registrada no CRC</h3>
-          <p>Contadoras habilitadas, com registro ativo no Conselho Regional de Contabilidade.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="feature__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>
-          </div>
-          <h3>Prazos em dia</h3>
-          <p>Obrigações fiscais e trabalhistas entregues no prazo, evitando multas e imprevistos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">❓ How To Use DesktopLife</h2>
+<p style="font-size:1.1em; line-height:1.7;"><strong>As a screensaver:</strong></p>
+<ol style="font-size:1.1em; line-height:1.8; background:#fff; padding:20px 35px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+<li>Download the zip file from the GitHub page and extract it anywhere.</li>
+<li>Right-click the DesktopLife.scr file and select "Install"</li>
+<li>Open Windows Settings → Personalization → Lock Screen → Screen Saver Settings</li>
+<li>Choose "DesktopLife" from the dropdown and click "Preview"</li>
+</ol>
+<p style="font-size:1.1em; line-height:1.7;"><strong>As a desktop pet:</strong></p>
+<ol style="font-size:1.1em; line-height:1.8; background:#fff; padding:20px 35px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+<li>Simply run DesktopLife.exe</li>
+<li>Your pet fly will appear on screen and follow your mouse!</li>
+<li>To exit, just close the app from the system tray or press Esc</li>
+</ol>
 
-  <!-- EQUIPE -->
-  <section class="section section--light" id="equipe">
-    <div class="container">
-      <div class="equipe__top">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="kicker__line"></span><span>Equipe</span></p>
-          <h2>Nossa equipe</h2>
-          <p class="lead">Fale diretamente com quem cuida da sua empresa.</p>
-        </div>
-        <figure class="equipe__photo reveal">
-          <picture>
-            <source srcset="equipe.webp" type="image/webp">
-            <img src="equipe.png" alt="Equipe da Pleno Contabilidade" loading="lazy" width="960" height="852">
-          </picture>
-        </figure>
-      </div>
-      <div class="grid-3 reveal-group">
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">🎯 Why Choose DesktopLife?</h2>
+<div style="background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin:20px 0;">
+<ul style="font-size:1.1em; line-height:2;">
+<li>✅ <strong>100% Free & Open Source</strong> – No hidden costs, no premium tiers</li>
+<li>✅ <strong>Privacy-friendly</strong> – Works offline, no data tracking</li>
+<li>✅ <strong>Lightweight</strong> – Uses minimal CPU/RAM when running</li>
+<li>✅ <strong>Customizable</strong> – Choose which insects appear via settings</li>
+<li>✅ <strong>Fun & Educational</strong> – Great for kids and anyone who loves nature</li>
+<li>✅ <strong>Regular updates</strong> – New insects and features added often</li>
+</ul>
+</div>
 
-        <article class="person reveal">
-          <div class="person__head">
-            <h3 class="person__name">Gabriele Gretes</h3>
-            <p class="person__role">CONTADORA · CRC/PR</p>
-          </div>
-          <div class="person__rule"></div>
-          <a class="person__row" href="https://wa.me/5541988333091?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
-            <span class="chip chip--wine">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.34M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89a9.82 9.82 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.42"/></svg>
-            </span>
-            <span>41 98833-3091</span>
-          </a>
-          <div class="person__row">
-            <span class="chip">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
-            </span>
-            <span class="muted">Fiscal / Contabilidade</span>
-          </div>
-        </article>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">💪 Frequently Asked Questions</h2>
+<p style="font-size:1.1em; line-height:1.8;"><strong>Q: Is this safe to run?</strong><br>A: Yes! DesktopLife is open-source, meaning anyone can inspect the code. It contains no malware or adware.</p>
+<p style="font-size:1.1em; line-height:1.8;"><strong>Q: Can I use it on multiple monitors?</strong><br>A: Absolutely! It natively supports multi-monitor setups, making insects climb across all screens smoothly.</p>
+<p style="font-size:1.1em; line-height:1.8;"><strong>Q: Does it affect performance?</strong><br>A: DesktopLife is optimized for low CPU usage (~1-5% typically). You won't notice any slowdown during normal use.</p>
+<p style="font-size:1.1em; line-height:1.8;"><strong>Q: How do I change themes?</strong><br>A: Right-click the system tray icon and select "Theme" – choose between Dark and Light. Settings apply instantly.</p>
 
-        <article class="person reveal">
-          <div class="person__head">
-            <h3 class="person__name">Sallu Alencar</h3>
-            <p class="person__role">CONTADORA · CRC/PA</p>
-          </div>
-          <div class="person__rule"></div>
-          <a class="person__row" href="https://wa.me/5591981645113?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
-            <span class="chip chip--wine">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.34M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89a9.82 9.82 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.42"/></svg>
-            </span>
-            <span>91 98164-5113</span>
-          </a>
-          <div class="person__row">
-            <span class="chip">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
-            </span>
-            <span class="muted">Folha, Contabilidade, Societário</span>
-          </div>
-        </article>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">📌 Get Started In 30 Seconds</h2>
+<div style="text-align:center; background:linear-gradient(135deg, #1a1a2e, #16213e); padding:35px; border-radius:15px; color:#ffffff; margin:30px 0;">
+<p style="font-size:1.2em; margin-bottom:20px;">Ready to bring some nature to your desktop? Download now and set up in under a minute.</p>
+<a href="https://github.com/maulananaufal626-prog/DesktopLife" style="display:inline-block; background:#e94560; color:#ffffff; text-decoration:none; padding:15px 30px; border-radius:50px; font-size:1.2em; font-weight:bold; box-shadow:0 6px 15px rgba(233,69,96,0.5);">
+⬇️ Download DesktopLife
+</a>
+</div>
 
-        <article class="person reveal">
-          <div class="person__head">
-            <h3 class="person__name">Giovanni</h3>
-            <p class="person__role">SECRETÁRIO POLIGLOTA</p>
-          </div>
-          <div class="person__rule"></div>
-          <a class="person__row" href="https://wa.me/5541999831553?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
-            <span class="chip chip--wine">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.34M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89a9.82 9.82 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.42"/></svg>
-            </span>
-            <span>41 99983-1553</span>
-          </a>
-          <div class="person__row">
-            <span class="chip">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
-            </span>
-            <span class="muted">Atendimento multilíngue</span>
-          </div>
-        </article>
+<h2 style="font-size:2em; color:#1a1a2e; border-bottom:3px solid #e94560; padding-bottom:10px;">🌟 Share The Fun</h2>
+<p style="font-size:1.1em; line-height:1.7;">If you enjoy DesktopLife, consider starring the <a href="https://github.com/maulananaufal626-prog/DesktopLife" style="color:#e94560;">GitHub repository</a> to show your support. Share it with friends who love unique desktop customization! Feel free to contribute ideas, report bugs, or help with translations.</p>
 
-      </div>
-    </div>
-    <svg class="divider" viewBox="0 0 1440 100" preserveAspectRatio="none" style="color:var(--navy-1)" aria-hidden="true"><path fill="currentColor" d="M0,55 C480,-10 960,110 1440,40 L1440,100 L0,100 Z"/></svg>
-  </section>
-
-  <!-- CONTATO / CTA -->
-  <section class="section section--dark" id="contato">
-    <div class="container cta reveal">
-      <p class="kicker kicker--on-dark kicker--center"><span class="kicker__line"></span><span>Contato</span><span class="kicker__line"></span></p>
-      <h2>Vamos cuidar da contabilidade da sua empresa?</h2>
-      <p>Fale agora com a nossa equipe e entenda como a Pleno Contabilidade pode simplificar o fiscal, o pessoal e o societário do seu negócio.</p>
-      <a class="btn btn--primary btn--wa" href="https://wa.me/5541988333091?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.34M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89a9.82 9.82 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.42"/></svg>Falar com a Pleno agora</a>
-      <div class="contact-list">
-        <div>
-          <span class="label">FISCAL / CONTABILIDADE</span>
-          <a href="https://wa.me/5541988333091?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">41 98833-3091</a>
-        </div>
-        <div>
-          <span class="label">FOLHA / SOCIETÁRIO</span>
-          <a href="https://wa.me/5591981645113?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">91 98164-5113</a>
-        </div>
-        <div>
-          <span class="label">ATENDIMENTO GERAL</span>
-          <a href="https://wa.me/5541999831553?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">41 99983-1553</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <svg width="20" height="27" viewBox="0 0 100 137" fill="none" aria-hidden="true">
-        <path d="M 92.77,40.67 L 90.88,34.91 L 86.69,29.77 L 81.13,24.21 L 67.09,12.58 L 60.80,7.97 L 51.36,0.10 L 50.63,0.00 L 29.35,22.54 L 21.49,31.45 L 16.98,35.85 L 5.56,48.64 L 87.11,48.74 L 88.99,48.53 L 91.30,46.54 L 92.66,43.50 Z" fill="#FFFFFF" opacity="0.92"/>
-        <path d="M 96.96,46.96 L 91.93,52.31 L 87.21,54.19 L 60.38,54.19 L 55.03,54.72 L 49.58,65.83 L 20.55,131.55 L 20.02,134.38 L 20.65,136.06 L 22.33,137.00 L 62.58,137.00 L 63.42,136.48 L 64.05,134.17 L 45.81,97.06 L 44.86,93.92 L 45.91,92.98 L 61.84,94.65 L 70.96,93.92 L 79.14,91.51 L 83.96,88.99 L 88.99,85.12 L 93.50,79.98 L 96.33,75.37 L 99.37,66.35 L 100.00,62.37 L 99.79,56.08 L 98.32,49.69 Z" fill="#8C2530"/>
-        <path d="M 4.51,54.82 L 1.78,56.60 L 0.84,58.18 L 0.21,60.06 L 0.00,64.47 L 1.47,68.76 L 3.46,72.01 L 8.81,78.51 L 21.91,96.12 L 25.89,100.94 L 26.73,101.26 L 45.81,54.61 L 45.28,54.19 L 6.50,54.19 Z" fill="#8C2530"/>
-      </svg>
-      <span>© <span id="ano">2026</span> Pleno Contabilidade · Todos os direitos reservados</span>
-    </div>
-    <nav class="footer__links" aria-label="Links do rodapé">
-      <a href="#servicos">Serviços</a>
-      <a href="#equipe">Equipe</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </div>
-</footer>
-
-<script>
-(function () {
-  var header = document.querySelector('.header');
-  function onScroll() {
-    header.setAttribute('data-scrolled', window.scrollY > 8 ? 'true' : 'false');
-  }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var pending = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-
-  if (reduceMotion) {
-    pending.forEach(function (el) { el.classList.add('is-visible'); });
-    pending = [];
-  } else {
-    var checkReveal = function () {
-      var vh = window.innerHeight;
-      pending = pending.filter(function (el) {
-        if (el.getBoundingClientRect().top < vh - 60) {
-          el.classList.add('is-visible');
-          return false;
-        }
-        return true;
-      });
-      if (!pending.length) {
-        window.removeEventListener('scroll', checkReveal);
-        window.removeEventListener('resize', checkReveal);
-      }
-    };
-    checkReveal();
-    window.addEventListener('scroll', checkReveal, { passive: true });
-    window.addEventListener('resize', checkReveal);
-    // Rede de seguranca: garante que nada fique invisivel para sempre.
-    setTimeout(function () {
-      pending.forEach(function (el) { el.classList.add('is-visible'); });
-    }, 4000);
-  }
-
-  var toggle = document.querySelector('.nav-toggle');
-  var nav = document.getElementById('nav');
-
-  function closeNav() {
-    nav.setAttribute('data-open', 'false');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Abrir menu');
-  }
-
-  toggle.addEventListener('click', function () {
-    var open = nav.getAttribute('data-open') === 'true';
-    if (open) {
-      closeNav();
-    } else {
-      nav.setAttribute('data-open', 'true');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Fechar menu');
-    }
-  });
-
-  nav.addEventListener('click', function (e) {
-    if (e.target.closest('a')) closeNav();
-  });
-
-  document.getElementById('ano').textContent = new Date().getFullYear();
-})();
-</script>
-
+<div style="text-align:center; margin-top:50px; padding-top:20px; border-top:2px solid #ddd; font-size:0.9em; color:#777;">
+<p>DesktopLife is an independent open-source project. Windows 10/11 are trademarks of Microsoft Corporation. This project is not affiliated with or endorsed by Microsoft.</p>
+<p style="margin-top:10px;">Made with ❤️ for insect lovers and desktop enthusiasts.</p>
+</div>
+</div>
 </body>
 </html>
