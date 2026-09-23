@@ -38,6 +38,10 @@
   --container:1248px;
   --gutter:clamp(20px, 6vw, 96px);
   --radius:16px;
+  --shadow-sm:0 2px 8px rgba(11,22,38,.06);
+  --shadow-md:0 12px 28px rgba(11,22,38,.10);
+  --shadow-lg:0 24px 48px rgba(11,22,38,.16);
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -67,19 +71,23 @@ h2{font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.2}
 .btn{
   display:inline-block;padding:16px 28px;border-radius:8px;
   font-weight:600;font-size:15px;line-height:1;
-  transition:background-color .18s ease,border-color .18s ease,transform .18s ease;
+  transition:background-color .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease),box-shadow .22s var(--ease);
 }
-.btn--primary{background:var(--wine);color:#fff}
-.btn--primary:hover{background:var(--wine-dark);transform:translateY(-1px)}
+.btn--primary{background:var(--wine);color:#fff;box-shadow:0 8px 20px rgba(110,30,40,.28)}
+.btn--primary:hover{background:var(--wine-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(110,30,40,.36)}
+.btn--primary:active{transform:translateY(0);box-shadow:0 6px 14px rgba(110,30,40,.3)}
 .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
-.btn--ghost:hover{background:rgba(255,255,255,.08)}
+.btn--ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
 .btn--wa{display:inline-flex;align-items:center;justify-content:center;gap:10px}
 
 /* ---------- HEADER ---------- */
 .header{
   position:sticky;top:0;z-index:50;
   background:var(--surface);border-bottom:1px solid var(--line);
+  box-shadow:0 0 0 rgba(11,22,38,0);
+  transition:box-shadow .25s var(--ease);
 }
+.header[data-scrolled="true"]{box-shadow:var(--shadow-sm)}
 .header__inner{
   min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
@@ -114,11 +122,36 @@ h2{font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.2}
   right:60px;bottom:-220px;width:420px;height:420px;border-radius:50%;
   border:1px solid rgba(255,255,255,.12);
 }
-.hero__inner{position:relative;z-index:1;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.hero__bg{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);
+  background-size:28px 28px;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 75%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 75%);
+}
+.hero__inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
 .eyebrow{font-size:13px;letter-spacing:3px;font-weight:600;color:var(--rose);text-transform:uppercase}
 .hero h1{font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.15;max-width:720px;color:#fff}
 .hero p{font-size:clamp(16px,2vw,18px);line-height:1.6;max-width:600px;color:var(--on-dark)}
 .hero__actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
+.hero__trust{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:20px}
+.hero__trust span{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--on-dark)}
+.hero__trust svg{flex-shrink:0}
+.hero__card{
+  display:none;position:relative;z-index:1;margin-left:auto;width:100%;max-width:340px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--radius);padding:28px;backdrop-filter:blur(8px);
+  box-shadow:var(--shadow-lg);
+  animation:float 6s ease-in-out infinite;
+}
+.hero__card .chip--wine{margin-bottom:14px}
+.hero__card h4{color:#fff;font-size:17px;font-weight:700;margin-bottom:6px}
+.hero__card p{color:var(--on-dark);font-size:14px;line-height:1.55;max-width:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (min-width:900px){
+  .hero__inner{grid-template-columns:1.15fr .85fr}
+  .hero__card{display:block}
+}
 
 /* ---------- GRIDS ---------- */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
@@ -126,19 +159,29 @@ h2{font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.2}
 .card{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   padding:36px;display:flex;flex-direction:column;gap:16px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(110,30,40,.18)}
 .card__icon{
   width:56px;height:56px;border-radius:12px;background:rgba(110,30,40,.08);
   display:flex;align-items:center;justify-content:center;
+  transition:background-color .3s var(--ease),transform .3s var(--ease);
 }
+.card:hover .card__icon{background:var(--wine);transform:scale(1.06)}
+.card:hover .card__icon svg{stroke:#fff}
 .card__title{font-weight:600;font-size:20px;color:var(--ink)}
 .card p{font-size:15px;line-height:1.6;color:var(--muted)}
 
-.feature{display:flex;flex-direction:column;gap:12px}
+.feature{display:flex;flex-direction:column;gap:12px;padding:8px;border-radius:12px;transition:transform .3s var(--ease)}
+.feature:hover{transform:translateY(-4px)}
 .feature__icon{
   width:44px;height:44px;border-radius:50%;border:1.5px solid var(--wine);
   display:flex;align-items:center;justify-content:center;
+  transition:background-color .3s var(--ease),transform .3s var(--ease);
 }
+.feature:hover .feature__icon{background:var(--wine);transform:scale(1.08)}
+.feature:hover .feature__icon svg{stroke:#fff}
 .feature h3{font-weight:600;font-size:18px;color:var(--ink)}
 .feature p{font-size:14.5px;line-height:1.6;color:var(--muted)}
 
@@ -147,7 +190,10 @@ h2{font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.2}
   background:linear-gradient(160deg,var(--navy-1),#0F1E38);
   border-radius:var(--radius);padding:32px;color:#fff;
   display:flex;flex-direction:column;gap:18px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
 }
+.person:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
 .person__head{display:flex;flex-direction:column;gap:4px}
 .person__name{font-weight:700;font-size:23px}
 .person__role{font-size:12px;letter-spacing:1px;font-weight:600;color:var(--rose)}
@@ -203,13 +249,21 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
   .contact-list{gap:24px}
   .footer__inner{flex-direction:column;align-items:flex-start}
 }
+/* ---------- SCROLL REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal-group .reveal:nth-child(2){transition-delay:.08s}
+.reveal-group .reveal:nth-child(3){transition-delay:.16s}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *{transition:none !important}
+  *{transition:none !important;animation:none !important}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body id="top">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
 <header class="header">
   <div class="container header__inner">
@@ -240,40 +294,55 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
     <div class="container hero__inner">
-      <p class="eyebrow">Contabilidade para micro e pequenas empresas</p>
-      <h1>Sua contabilidade completa, do fiscal à folha de pagamento</h1>
-      <p>A Pleno Contabilidade cuida da rotina fiscal, contábil, de pessoal e societária da sua empresa para você focar no que importa: crescer com segurança.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="#contato">Falar com um contador</a>
-        <a class="btn btn--ghost" href="#servicos">Conhecer serviços</a>
+      <div class="reveal">
+        <p class="eyebrow">Contabilidade para micro e pequenas empresas</p>
+        <h1>Sua contabilidade completa, do fiscal à folha de pagamento</h1>
+        <p>A Pleno Contabilidade cuida da rotina fiscal, contábil, de pessoal e societária da sua empresa para você focar no que importa: crescer com segurança.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#contato">Falar com um contador</a>
+          <a class="btn btn--ghost" href="#servicos">Conhecer serviços</a>
+        </div>
+        <div class="hero__trust">
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7A9AF" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Equipe registrada no CRC</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7A9AF" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Atendimento direto por WhatsApp</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7A9AF" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Prazos fiscais sempre em dia</span>
+        </div>
       </div>
+      <aside class="hero__card reveal" aria-hidden="true">
+        <span class="chip chip--wine">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <h4>Segurança em cada etapa</h4>
+        <p>Da apuração de impostos à folha de pagamento, cada processo é acompanhado de perto por uma contadora responsável — sem repasses genéricos, sem prazo perdido.</p>
+      </aside>
     </div>
   </section>
 
   <!-- SERVIÇOS -->
   <section class="section section--light" id="servicos">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Nossos serviços</h2>
         <p class="lead">Tudo o que sua empresa precisa para operar em dia com o fisco, com os colaboradores e com a Junta Comercial.</p>
       </div>
-      <div class="grid-3">
-        <article class="card">
+      <div class="grid-3 reveal-group">
+        <article class="card reveal">
           <div class="card__icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/></svg>
           </div>
           <h3 class="card__title">Fiscal / Contabilidade</h3>
           <p>Apuração de impostos, escrituração contábil e obrigações acessórias sempre em dia, com relatórios claros para a sua gestão.</p>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <div class="card__icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 13.2c2.6.4 4.5 2.6 4.5 5.3"/></svg>
           </div>
           <h3 class="card__title">Folha de pagamento</h3>
           <p>Admissões, rescisões, férias, benefícios e toda a rotina de departamento pessoal, sem dor de cabeça para você.</p>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <div class="card__icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-7h6v7"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
           </div>
@@ -287,25 +356,25 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
   <!-- DIFERENCIAIS -->
   <section class="section section--white" id="diferenciais">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Por que a Pleno Contabilidade</h2>
       </div>
-      <div class="grid-3">
-        <div class="feature">
+      <div class="grid-3 reveal-group">
+        <div class="feature reveal">
           <div class="feature__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6z"/><circle cx="12" cy="12" r="2.6"/></svg>
           </div>
           <h3>Atendimento próximo</h3>
           <p>Contato direto com quem cuida da sua conta, sem burocracia para tirar dúvidas do dia a dia.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="feature__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
           <h3>Equipe registrada no CRC</h3>
           <p>Contadoras habilitadas, com registro ativo no Conselho Regional de Contabilidade.</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="feature__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6E1E28" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>
           </div>
@@ -319,13 +388,13 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
   <!-- EQUIPE -->
   <section class="section section--light" id="equipe">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Nossa equipe</h2>
         <p class="lead">Fale diretamente com quem cuida da sua empresa.</p>
       </div>
-      <div class="grid-3">
+      <div class="grid-3 reveal-group">
 
-        <article class="person">
+        <article class="person reveal">
           <div class="person__head">
             <h3 class="person__name">Gabriele Gretes</h3>
             <p class="person__role">CONTADORA · CRC/PR</p>
@@ -345,7 +414,7 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
           </div>
         </article>
 
-        <article class="person">
+        <article class="person reveal">
           <div class="person__head">
             <h3 class="person__name">Sallu Alencar</h3>
             <p class="person__role">CONTADORA · CRC/PA</p>
@@ -365,7 +434,7 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
           </div>
         </article>
 
-        <article class="person">
+        <article class="person reveal">
           <div class="person__head">
             <h3 class="person__name">Giovanni</h3>
             <p class="person__role">SECRETÁRIO POLIGLOTA</p>
@@ -391,7 +460,7 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
 
   <!-- CONTATO / CTA -->
   <section class="section section--dark" id="contato">
-    <div class="container cta">
+    <div class="container cta reveal">
       <h2>Vamos cuidar da contabilidade da sua empresa?</h2>
       <p>Fale agora com a nossa equipe e entenda como a Pleno Contabilidade pode simplificar o fiscal, o pessoal e o societário do seu negócio.</p>
       <a class="btn btn--primary btn--wa" href="https://wa.me/5541988333091?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Pleno%20Contabilidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.34M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89a9.82 9.82 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.42"/></svg>Falar com a Pleno agora</a>
@@ -434,6 +503,29 @@ a.person__row:hover span:not(.chip){color:var(--rose)}
 
 <script>
 (function () {
+  var header = document.querySelector('.header');
+  function onScroll() {
+    header.setAttribute('data-scrolled', window.scrollY > 8 ? 'true' : 'false');
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('nav');
 

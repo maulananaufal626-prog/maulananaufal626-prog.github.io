@@ -1,0 +1,1 @@
+sempre verifique visualmente com screenshot antes de dizer que terminou
