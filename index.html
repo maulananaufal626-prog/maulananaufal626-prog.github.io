@@ -55,7 +55,7 @@ body{
 }
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,p{margin:0}
+h1,h2,h3,p,figure{margin:0}
 :focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
 
 .container{width:100%;max-width:var(--container);margin:0 auto;padding-inline:var(--gutter)}
@@ -212,6 +212,18 @@ h2{font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.2}
 .feature p{font-size:14.5px;line-height:1.6;color:var(--muted)}
 
 /* ---------- EQUIPE ---------- */
+.equipe__top{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;margin-bottom:clamp(32px,4vw,44px)}
+.equipe__top .section-head{margin-bottom:0}
+.equipe__photo{
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);
+  border:1px solid var(--line);border-bottom:4px solid var(--wine);
+  aspect-ratio:4/3;
+}
+.equipe__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+@media (min-width:900px){
+  .equipe__top{grid-template-columns:1fr .95fr;gap:48px}
+  .equipe__photo{aspect-ratio:4/5}
+}
 .person{
   background:linear-gradient(160deg,var(--navy-1),#0F1E38);
   border-radius:var(--radius);padding:32px;color:#fff;
@@ -418,10 +430,15 @@ a.person__row:hover span:not(.chip){color:var(--rose);border-color:var(--rose)}
   <!-- EQUIPE -->
   <section class="section section--light" id="equipe">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="kicker"><span class="kicker__line"></span><span>Equipe</span></p>
-        <h2>Nossa equipe</h2>
-        <p class="lead">Fale diretamente com quem cuida da sua empresa.</p>
+      <div class="equipe__top">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="kicker__line"></span><span>Equipe</span></p>
+          <h2>Nossa equipe</h2>
+          <p class="lead">Fale diretamente com quem cuida da sua empresa.</p>
+        </div>
+        <figure class="equipe__photo reveal">
+          <img src="equipe.jpg" alt="Equipe da Pleno Contabilidade no escritório" loading="lazy" width="704" height="1058">
+        </figure>
       </div>
       <div class="grid-3 reveal-group">
 
