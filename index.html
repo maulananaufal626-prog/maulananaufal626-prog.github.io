@@ -212,17 +212,17 @@ h2{font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.2}
 .feature p{font-size:14.5px;line-height:1.6;color:var(--muted)}
 
 /* ---------- EQUIPE ---------- */
-.equipe__top{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;margin-bottom:clamp(32px,4vw,44px)}
-.equipe__top .section-head{margin-bottom:0;flex:1 1 320px}
+.equipe__top{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;margin-bottom:clamp(32px,4vw,44px)}
+.equipe__top .section-head{margin-bottom:0}
 .equipe__photo{
-  width:130px;flex-shrink:0;
-  border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);
-  border:1px solid var(--line);border-bottom:3px solid var(--wine);
-  aspect-ratio:1/1;
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);
+  border:1px solid var(--line);border-bottom:4px solid var(--wine);
+  aspect-ratio:4/3;
 }
 .equipe__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
-@media (min-width:640px){
-  .equipe__photo{width:160px}
+@media (min-width:900px){
+  .equipe__top{grid-template-columns:1fr .95fr;gap:48px}
+  .equipe__photo{aspect-ratio:4/5}
 }
 .person{
   background:linear-gradient(160deg,var(--navy-1),#0F1E38);
